@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Minha Jornada em TI - Tabuleiro Animado</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto&display=swap');
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: #0f111a;
+    color: #cbd5e1;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .board {
+    width: 900px;
+    background: #1f2937;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 20px #3b82f6;
+  }
+  h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #3b82f6;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .step {
+    display: flex;
+    background: #111827;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    position: relative;
+    align-items: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .step:hover {
+    background-color: #1e40af;
+    box-shadow: 0 0 15px #60a5fa;
+  }
+  .step-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: #2563eb;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    box-shadow: 0 0 10px #3b82f6;
+    transition: background-color 0.3s ease;
+  }
+  .step:hover .step-icon {
+    background: #3b82f6;
+    box-shadow: 0 0 15px #93c5fd;
+  }
+  .step-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: #dbeafe;
+    transition: fill 0.3s ease;
+  }
+  .step:hover .step-icon svg {
+    fill: #eff6ff;
+  }
+  .step-content {
+    flex: 1;
+  }
+  .step-title {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #60a5fa;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .step-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #e0e7ff;
+  }
+  /* Animated arrow between steps */
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -45px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(90deg, transparent 50%, #3b82f6 50%);
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    animation: arrowMove 2s infinite ease-in-out;
+    filter: drop-shadow(0 0 3px #2563eb);
+  }
+  @keyframes arrowMove {
+    0% {
+      transform: translateY(-50%) translateX(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-50%) translateX(5px);
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(-50%) translateX(0);
+      opacity: 1;
+    }
+  }
+  /* Responsive */
+  @media (max-width: 960px) {
+    .board {
+      width: 90vw;
+      padding: 20px;
+    }
+    .step {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .step-icon {
+      margin-bottom: 15px;
+      margin-right: 0;
+    }
+    .step:not(:last-child)::after {
+      display: none;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="board">
+    <h1>Minha Jornada na Tecnologia</h1>
+
+    <div class="step" tabindex="0">
+      <div class="step-icon" title="Início">
+        <!-- Ícone: jovem aprendiz -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 0 5 5 5.006 5.006 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3.003 3.003 0 0 1-3 3zm6.63 6.06a6 6 0 0 1-12 0c0-3.314 2.686-6 6-6s6 2.686 6 6z"/></svg>
+      </div>
+      <div class="step-content">
+        <div class="step-title">🎮 Início da Jornada – Primeira Casa: Curiosidade pela Tecnologia</div>
+        <div class="step-text">
+          Iniciei minha trajetória na área de tecnologia aos 16 anos de idade como jovem aprendiz em uma empresa gráfica, passando por um programa de rotatividade entre setores. Durante essa experiência, tive contato com a área de TI, apoiando analistas na resolução de problemas, o que despertou minha paixão pela tecnologia.
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="step" tabindex="0">
+      <div class="step-icon" title="Curso Técnico e Experiência GM">
+        <!-- Ícone: curso -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 7v10l7 5 7-5V7l-7-5-7 5zm7 11.268L4.34 15l1.415-1.414L9 16.438l6.244-6.245 1.415 1.414-7.66 7.661z"/></svg>
+      </div>
+      <div class="step-content">
+        <div class="step-title">🚀 Level Up – Curso Técnico e Oportunidade na General Motors</div>
+        <div class="step-text">
+          Entusiasmado pela área de TI, me matriculei em um curso técnico de Tecnologia da Informação e, com as habilidades desenvolvidas, me destaquei rapidamente. Isso me proporcionou a oportunidade de atuar como aprendiz do SENAI na General Motors, onde aprofundei competências em gestão, elaboração de relatórios e ferramentas como Excel e Power BI. Meu desempenho me garantiu a extensão do contrato na empresa. Ao final, recusei uma proposta para atuar na linha de produção, mantendo o foco na construção da minha carreira em tecnologia.
+        </div>
+      </div>
+    </div>
+
+    <div class="step" tabindex="0">
+      <div class="step-icon" title="Inicio da graduação e Primeira oportunidade efetiva">
+        <!-- Ícone: graduação -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L1 7l11 5 9-4.09v6.18l-3 2.09v3l3-2.09v2l-6 4-6-4v-2l3 2.09v-3l-3-2.09V7l9 4.09z"/></svg>
+      </div>
+      <div class="step-content">
+        <div class="step-title">📘 Nova Fase – Engenharia da Computação na FIAP e Primeira oportunidade efetiva</div>
+        <div class="step-text">
+          Com foco no futuro, ingressei no curso de Engenharia da Computação pela FIAP. E logo dei o próximo passo no jogo: conquistei minha primeira vaga como Analista de Suporte na Rede Cred Auto. Foram 2 anos e 5 meses de evolução técnica e pessoal, atuando diretamente no suporte aos usuários e na manutenção de ambientes corporativos.
+        </div>
+      </div>
+    </div>
+
+    <div class="step" tabindex="0">
+      <div class="step-icon" title="Positivo S+ e Banco BMG">
+        <!-- Ícone: suporte técnico -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      </div>
+      <div class="step-content">
+        <div class="step-title">🛠️ Desafio de Boss – Banco BMG e Consolidação Profissional</div>
+        <div class="step-text">
+          Em busca de um novo desafio, entrei para a Positivo S+ como analista de suporte, prestando serviço ao Banco BMG. Encarei um ambiente exigente e me desenvolvi ainda mais, com foco em:
+
+Suporte técnico N1/N2 (Windows/macOS);
+
+Active Directory, Intune, Trellix;
+
+Políticas de segurança com Entra ID, BitLocker e Crowdstrike;
+
+Atendimento via Freshservice e padronização de processos.
+        </div>
+      </div>
+    </div>
+
+    <div class="step" tabindex="0">
+      <div class="step-icon" title="Consultoria WEAI e Área de Inovação">
+        <!-- Ícone: inovação -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 4h16v2H4zm0 6h16v2H4zm0 6h10v2H4z"/></svg>
+      </div>
+      <div class="step-content">
+        <div class="step-title">🌐 Fase Avançada – Inovação e Segurança da Informação</div>
+        <div class="step-text">
+          Com bom desempenho, fui convidado a integrar a consultoria WEAI Tecnologia, agora atuando na área de Inovação, Melhorias e Vulnerabilidades dentro do Banco BMG. Nesse novo capítulo, venho aprimorando minhas habilidades com foco em infraestrutura e segurança:
+
+Administração de Azure, GPOs, SCCM e WSUS;
+
+Automatizações via PowerShell;
+
+Correção de vulnerabilidades, hardening e documentação técnica.
+        </div>
+      </div>
+    </div>
+
+    <div class="step" tabindex="0">
+      <div class="step-icon" title="🏁 Próxima Jogada – Em busca do próximo desafio">
+        <!-- Ícone: objetivo -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm1 14.5h-2v-2h2zm0-4h-2V7h2z"/></svg>
+      </div>
+      <div class="step-content">
+        <div class="step-title">🏁 Próxima Jogada – Em busca do próximo desafio</div>
+        <div class="step-text">
+         Hoje, sigo em constante evolução e buscando novos desafios que unam inovação, segurança e resultados. Quero fazer parte de um time que valorize o impacto da TI na transformação digital das empresas. Meu grande objetivo profissional? Coordenar equipes de tecnologia voltadas para resultados, com visão estratégica, técnica e colaborativa. Meu Objetivo final? O céu é o limite!🚀
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
